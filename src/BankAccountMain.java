@@ -231,10 +231,21 @@ public class BankAccountMain
 			while(answer.equals(ans2))
 			{
 				//no accounts
-				if(accounts.size() == 0)
+				while(accounts.size() == 0)
 				{
-					System.out.println("There are no accounts to make a transaction.  Please start over and add an account(s) first.");
-					System.exit(0);
+					System.out.println("There are no accounts to make a transaction.  Please add an account first.");
+					//restart program
+					System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+					System.out.println("Please enter Add, Transaction, or Terminate.");
+					System.out.println("Answer: ");
+					answer = in.next();
+					in.nextLine();
+					while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+					{
+						System.out.println("Not valid answer.  Choose again: ");
+						answer = in.next();
+						in.nextLine();
+					}
 				}
 				//with accounts
 				System.out.println("Would you like to withdraw, deposit, transer, or get an Account Number?");
