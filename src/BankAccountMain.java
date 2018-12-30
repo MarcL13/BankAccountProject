@@ -96,17 +96,20 @@ public class BankAccountMain
 						System.out.println("Initial Balance:" );
 						String iniBal = in.next();
 						in.nextLine();
-						while(!isNumeric(iniBal))
+						//if balance is a string or negative
+						while(!isNumeric(iniBal) || Double.parseDouble(iniBal) < 0)
 						{
-							System.out.println("Not valid answer.  Choose again: ");
+							System.out.println("Not valid amount.  Choose again: ");
 							iniBal = in.next();
 							in.nextLine();
 						}
-						while(isNumeric(iniBal))
+						//balance is good
+						if(isNumeric(iniBal))
 						{
 							double bal = Double.parseDouble(iniBal);
 							accounts.add(new SavingsAccount(name1, bal, RATE, MIN_BAL, MIN_BAL_FEE));
 							System.out.println("Thank you.  Your account has been added.");
+							//restart program
 							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 							System.out.println("Please enter Add, Transaction, or Terminate.");
 							System.out.println("Answer: ");
@@ -130,6 +133,7 @@ public class BankAccountMain
 						in.nextLine();
 						accounts.add(new SavingsAccount(name2, RATE, MIN_BAL, MIN_BAL_FEE));
 						System.out.println("Thank you.  Your account has been added.");
+						//restart program
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");
 						System.out.println("Answer: ");
@@ -165,20 +169,34 @@ public class BankAccountMain
 						System.out.println("Name: ");
 						String name1 = in.next();
 						in.nextLine();
-						double iniBal;
-						System.out.println("Initial Balance:" );
-						iniBal = in.nextDouble();
+						System.out.println("Initial Balance: ");
+						String iniBal = in.next();
 						in.nextLine();
-						while(!in.hasNextDouble())
+						//if balance is a string or negative
+						while(!isNumeric(iniBal) || Double.parseDouble(iniBal) < 0)
 						{
-							System.out.println("Not valid answer.  Choose again: ");
-							iniBal = in.nextDouble();
+							System.out.println("Not valid amount.  Choose again: ");
+							iniBal = in.next();
 							in.nextLine();
 						}
-						if(in.hasNextDouble())
+						//balance is good
+						if(isNumeric(iniBal))
 						{
-							accounts.add(new CheckingAccount(name1, iniBal, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
+							double bal = Double.parseDouble(iniBal);
+							accounts.add(new CheckingAccount(name1, bal, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
 							System.out.println("Thank you.  Your account has been added.");
+							//restart program
+							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+							System.out.println("Please enter Add, Transaction, or Terminate.");
+							System.out.println("Answer: ");
+							answer = in.next();
+							in.nextLine();
+							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+							{
+								System.out.println("Not valid answer.  Choose again: ");
+								answer = in.next();
+								in.nextLine();
+							}
 						}
 																	
 					}
@@ -191,6 +209,18 @@ public class BankAccountMain
 						in.nextLine();
 						accounts.add(new CheckingAccount(name2, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
 						System.out.println("Thank you.  Your account has been added.");
+						//restart program
+						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+						System.out.println("Please enter Add, Transaction, or Terminate.");
+						System.out.println("Answer: ");
+						answer = in.next();
+						in.nextLine();
+						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+						{
+							System.out.println("Not valid answer.  Choose again: ");
+							answer = in.next();
+							in.nextLine();
+						}
 					}
 				
 				}
