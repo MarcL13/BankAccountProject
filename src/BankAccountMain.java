@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class BankAccountMain
 {
-	public static boolean isNumeric(String str)
+	private static boolean isNumeric(String str)
 	{
 		try
 		{
@@ -57,7 +57,7 @@ public class BankAccountMain
 		if(!answer.equals(ans3))
 		{
 			//add account
-			if(answer.equals(ans1))
+			while(answer.equals(ans1))
 			{
 				System.out.println("Do you want a savings or checking account? Please enter Savings or Checking.");
 				System.out.println("Answer:");
@@ -93,19 +93,31 @@ public class BankAccountMain
 						System.out.println("Name: ");
 						String name1 = in.next();
 						in.nextLine();
-						double iniBal;
 						System.out.println("Initial Balance:" );
-						iniBal = in.nextDouble();
+						String iniBal = in.next();
 						in.nextLine();
-						while(!in.hasNextDouble())
+						while(!isNumeric(iniBal))
 						{
 							System.out.println("Not valid answer.  Choose again: ");
-							iniBal = in.nextDouble();
+							iniBal = in.next();
 							in.nextLine();
 						}
-						if(in.hasNextDouble())
+						while(isNumeric(iniBal))
 						{
-							accounts.add(new SavingsAccount(name1, iniBal, RATE, MIN_BAL, MIN_BAL_FEE));
+							double bal = Double.parseDouble(iniBal);
+							accounts.add(new SavingsAccount(name1, bal, RATE, MIN_BAL, MIN_BAL_FEE));
+							System.out.println("Thank you.  Your account has been added.");
+							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+							System.out.println("Please enter Add, Transaction, or Terminate.");
+							System.out.println("Answer: ");
+							answer = in.next();
+							in.nextLine();
+							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+							{
+								System.out.println("Not valid answer.  Choose again: ");
+								answer = in.next();
+								in.nextLine();
+							}
 						}
 																	
 					}
@@ -117,6 +129,18 @@ public class BankAccountMain
 						String name2 = in.next();
 						in.nextLine();
 						accounts.add(new SavingsAccount(name2, RATE, MIN_BAL, MIN_BAL_FEE));
+						System.out.println("Thank you.  Your account has been added.");
+						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+						System.out.println("Please enter Add, Transaction, or Terminate.");
+						System.out.println("Answer: ");
+						answer = in.next();
+						in.nextLine();
+						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+						{
+							System.out.println("Not valid answer.  Choose again: ");
+							answer = in.next();
+							in.nextLine();
+						}
 					}
 				
 				}
@@ -154,6 +178,7 @@ public class BankAccountMain
 						if(in.hasNextDouble())
 						{
 							accounts.add(new CheckingAccount(name1, iniBal, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
+							System.out.println("Thank you.  Your account has been added.");
 						}
 																	
 					}
@@ -165,6 +190,7 @@ public class BankAccountMain
 						String name2 = in.next();
 						in.nextLine();
 						accounts.add(new CheckingAccount(name2, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
+						System.out.println("Thank you.  Your account has been added.");
 					}
 				
 				}
@@ -172,8 +198,15 @@ public class BankAccountMain
 			}
 			
 			//transaction
-			if(answer.equals(ans2))
+			while(answer.equals(ans2))
 			{
+				//no accounts
+				if(accounts.size() == 0)
+				{
+					System.out.println("There are no accounts to make a transaction.  Please start over and add an account(s) first.");
+					System.exit(0);
+				}
+				//with accounts
 				System.out.println("Would you like to withdraw, deposit, transer, or get an Account Number?");
 				System.out.println("Please enter Withdraw, Deposit, Transfer, or Get");
 				System.out.println("Answer: ");
@@ -187,8 +220,19 @@ public class BankAccountMain
 				}
 				switch(response)
 				{
+				//withdraw
 				case "Withdraw" :
 				{
+					System.out.println("Which account would you like to access?  Please enter the account number.");
+					System.out.println("Answer: ");
+					int num = in.nextInt();
+					for(BankAccount a : accounts)
+					{
+						while(accounts.size() == 0)
+						{
+							
+						}
+					}
 					
 				}
 				}
