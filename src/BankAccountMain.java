@@ -54,7 +54,7 @@ public class BankAccountMain
 			}
 		
 		//Not terminate
-		if(!answer.equals(ans3))
+		while(!answer.equals(ans3))
 		{
 			//add account
 			while(answer.equals(ans1))
@@ -231,7 +231,7 @@ public class BankAccountMain
 			while(answer.equals(ans2))
 			{
 				//no accounts
-				while(accounts.size() == 0)
+				if(accounts.size() == 0)
 				{
 					System.out.println("There are no accounts to make a transaction.  Please add an account first.");
 					//restart program
@@ -245,37 +245,51 @@ public class BankAccountMain
 						System.out.println("Not valid answer.  Choose again: ");
 						answer = in.next();
 						in.nextLine();
-					}
+					}	
 				}
-				//with accounts
-				System.out.println("Would you like to withdraw, deposit, transer, or get an Account Number?");
-				System.out.println("Please enter Withdraw, Deposit, Transfer, or Get");
-				System.out.println("Answer: ");
-				String response = in.next();
-				in.nextLine();
-				if(!response.equals("Withdraw") && !response.equals("Deposit") && !response.equals("Transfer") && !response.equals("Get"))
+				else
 				{
-					System.out.println("Invalid answer.  Enter again: ");
-					response = in.next();
-					in.nextLine();
-				}
-				switch(response)
-				{
-				//withdraw
-				case "Withdraw" :
-				{
-					System.out.println("Which account would you like to access?  Please enter the account number.");
+					//with accounts
+					System.out.println("Would you like to withdraw, deposit, transer, or get an Account Number?");
+					System.out.println("Please enter Withdraw, Deposit, Transfer, or Get");
 					System.out.println("Answer: ");
-					int num = in.nextInt();
-					for(BankAccount a : accounts)
+					String response = in.next();
+					in.nextLine();
+					if(!response.equals("Withdraw") && !response.equals("Deposit") && !response.equals("Transfer") && !response.equals("Get"))
 					{
-						while(accounts.size() == 0)
-						{
-							
-						}
+						System.out.println("Invalid answer.  Enter again: ");
+						response = in.next();
+						in.nextLine();
 					}
-					
-				}
+					switch(response)
+					{
+					//withdraw
+					case "Withdraw" :
+					{
+						System.out.println("Which account would you like to access?  Please enter the account number.");
+						System.out.println("Answer: ");
+						int num = in.nextInt();
+						in.nextLine();
+						//if they enter acc# outside of # of accounts
+						if(num < accounts.size())
+						{
+							System.out.println("That account does not exist.  Please try a different account: ");
+							num = in.nextInt();
+							in.nextLine();
+						}
+						for(int i = 0; i < num; i++)
+						{
+							//if account #s do not match
+							while(num != accounts.get(num).getAccNum())
+							{
+								System.out.println("The account numbers do not match.  Try again.");
+								System.out.println("Please enter account number: ");
+								num = in.nextInt();
+								in.nextLine();
+							}	
+						}	
+					}
+					}
 				}
 			}
 		}
