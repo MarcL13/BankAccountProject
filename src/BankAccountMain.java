@@ -280,13 +280,72 @@ public class BankAccountMain
 						for(int i = 0; i < num; i++)
 						{
 							//if account #s do not match
-							while(num != accounts.get(num).getAccNum())
+							while(num != accounts.get(num-1).getAccNum())
 							{
+								//acc #s negative or 0
+								double testNum = -1;
+								double testResult;
+								try
+								{
+									testResult = Math.sqrt(num+testNum);
+								}
+								catch(IllegalArgumentException e)
+								{
+									System.out.println("Invalid number.  Try again: ");
+									num = in.nextInt();
+									in.nextLine();
+								}
+								//account number entered is greater than # of accounts
+								try
+								{
+									testResult = Math.sqrt(accounts.size() - num);
+								}
+								catch(IndexOutOfBoundsException e)
+								{
+									System.out.println("That account number does not exist.  Try again: ");
+									num = in.nextInt();
+									in.nextLine();
+								}
 								System.out.println("The account numbers do not match.  Try again.");
 								System.out.println("Please enter account number: ");
 								num = in.nextInt();
 								in.nextLine();
-							}	
+							}
+							//acc #s match
+							while(num == accounts.get(num-1).getAccNum())
+							{
+								System.out.println("How much would you like to withdraw?  Enter amount: ");
+								String amount = in.next();
+								in.nextLine();
+								//if they want to withdraw a string or negative
+								while(!isNumeric(amount) || Double.parseDouble(amount) < 0)
+								{
+									System.out.println("Transaction not authorized. Try again: ");
+									amount = in.next();
+									in.nextLine();
+								}
+								//if withdraw amount is good
+								while(isNumeric(amount))
+								{
+									double amt = Double.parseDouble(amount);
+									//making sure account balance is not negative
+									double testAmt = -1;
+									double testResult;
+									try
+									{
+									testResult = Math.sqrt(accounts.get(num-1).getBalance());
+									
+									}
+									catch(IllegalArgumentException e)
+									{
+										System.out.println("Your balance is negative.  Add funds before withdrawing.");
+										amount = in.next();
+										in.nextLine();
+									}
+									
+									
+								}
+							}
 						}	
 					}
 					}
