@@ -276,14 +276,14 @@ public class BankAccountMain
 					}
 					switch(response)
 					{
-					//withdraw
-					case "Withdraw" :
+					//deposit
+					case "Deposit" :
 					{
 						System.out.println("Which account would you like to access?  Please enter the account number.");
 						System.out.println("Answer: ");
 						String num = in.next();
 						in.nextLine();
-						double testResult;
+						
 						//if they enter acc# outside of # of accounts, negative, or 0
 						while(!isAccNum(num) || Integer.parseInt(num) > accounts.size() || Integer.parseInt(num) <= 0 )
 						{
@@ -291,13 +291,43 @@ public class BankAccountMain
 							num = in.next();
 							in.nextLine();
 						}
+						//acc #s match
+						while(Integer.parseInt(num) == accounts.get(Integer.parseInt(num)-1).getAccNum())
+						{
+							System.out.println("How much would you like to deposit?  Enter amount: ");
+							String amount = in.next();
+							in.nextLine();
+							double amt = Double.parseDouble(amount);
+							try
+							{
+								accounts.get(Integer.parseInt(num) - 1).deposit(amt);
+							}
+							catch(IllegalArgumentException e)
+							{
+								System.out.println("Cannot deposit a negative number.  Try again: ");
+								amount = in.next();
+								in.nextLine();
+							}
+							
+						}
+					}
+					
+					
+					//withdraw
+					case "Withdraw" :
+					{
+						System.out.println("Which account would you like to access?  Please enter the account number.");
+						System.out.println("Answer: ");
+						String num = in.next();
+						in.nextLine();
 						
-						
-						
-						
-						
-						
-						
+						//if they enter acc# outside of # of accounts, negative, or 0
+						while(!isAccNum(num) || Integer.parseInt(num) > accounts.size() || Integer.parseInt(num) <= 0 )
+						{
+							System.out.println("That account does not exist.  Please try a different account: ");
+							num = in.next();
+							in.nextLine();
+						}
 						//acc #s match
 						while(Integer.parseInt(num) == accounts.get(Integer.parseInt(num)-1).getAccNum())
 						{
@@ -330,12 +360,7 @@ public class BankAccountMain
 									System.out.println("You cannot withdraw that much.  Deposit funds first.");
 								}
 								
-								
-								
-								
-								
-								
-						}
+							}
 						}
 					}	
 				
@@ -348,3 +373,4 @@ public class BankAccountMain
 }
 
 }
+
