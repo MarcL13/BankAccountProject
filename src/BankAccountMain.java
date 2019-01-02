@@ -255,7 +255,7 @@ public class BankAccountMain
 					System.out.println("Answer: ");
 					String response = in.next();
 					in.nextLine();
-					if(!response.equals("Withdraw") && !response.equals("Deposit") && !response.equals("Transfer") && !response.equals("Get"))
+					while(!response.equals("Withdraw") && !response.equals("Deposit") && !response.equals("Transfer") && !response.equals("Get"))
 					{
 						System.out.println("Invalid answer.  Enter again: ");
 						response = in.next();
@@ -268,92 +268,86 @@ public class BankAccountMain
 					{
 						System.out.println("Which account would you like to access?  Please enter the account number.");
 						System.out.println("Answer: ");
-						int num = in.nextInt();
+						String num = in.next();
 						in.nextLine();
 						//if they enter acc# outside of # of accounts
-						if(num < accounts.size())
+						while(Integer.parseInt(num) > accounts.size())
 						{
 							System.out.println("That account does not exist.  Please try a different account: ");
-							num = in.nextInt();
+							num = in.next();
 							in.nextLine();
 						}
-						for(int i = 0; i < num; i++)
+						//acc #s negative or 0
+						double testNum = -1;
+						double testResult;
+						try
 						{
-							//if account #s do not match
-							while(num != accounts.get(num-1).getAccNum())
+							testResult = Math.sqrt(Integer.parseInt(num)+testNum);
+						}
+						catch(IllegalArgumentException e)
+						{
+							System.out.println("That account does not exist.  Try again: ");
+							num = in.next();
+							in.nextLine();
+						}
+						try
+						{
+							testResult = Math.sqrt(Integer.parseInt(num) - accounts.size());
+						}
+						catch(ArrayIndexOutOfBoundsException b)
+						{
+							System.out.println("That account does not exist. Try again: ");
+							num = in.next();
+							in.nextLine();
+						}
+						
+						
+						
+						
+						
+						//acc #s match
+						while(Integer.parseInt(num) == accounts.get(Integer.parseInt(num)-1).getAccNum())
+						{
+							System.out.println("How much would you like to withdraw?  Enter amount: ");
+							String amount = in.next();
+							in.nextLine();
+							//if they want to withdraw a string or negative
+							while(!isNumeric(amount) || Double.parseDouble(amount) < 0)
 							{
-								//acc #s negative or 0
-								double testNum = -1;
-								double testResult;
+								System.out.println("Transaction not authorized. Try again: ");
+								amount = in.next();
+								in.nextLine();
+							}
+							//if withdraw amount is good
+							while(isNumeric(amount))
+							{
+								double amt = Double.parseDouble(amount);
+								//making sure account balance is not negative
+								double testAmt = -1;
+								
 								try
 								{
-									testResult = Math.sqrt(num+testNum);
+								testResult = Math.sqrt(accounts.get(Integer.parseInt(num)-1).getBalance());
+								
 								}
 								catch(IllegalArgumentException e)
 								{
-									System.out.println("Invalid number.  Try again: ");
-									num = in.nextInt();
-									in.nextLine();
-								}
-								//account number entered is greater than # of accounts
-								try
-								{
-									testResult = Math.sqrt(accounts.size() - num);
-								}
-								catch(IndexOutOfBoundsException e)
-								{
-									System.out.println("That account number does not exist.  Try again: ");
-									num = in.nextInt();
-									in.nextLine();
-								}
-								System.out.println("The account numbers do not match.  Try again.");
-								System.out.println("Please enter account number: ");
-								num = in.nextInt();
-								in.nextLine();
-							}
-							//acc #s match
-							while(num == accounts.get(num-1).getAccNum())
-							{
-								System.out.println("How much would you like to withdraw?  Enter amount: ");
-								String amount = in.next();
-								in.nextLine();
-								//if they want to withdraw a string or negative
-								while(!isNumeric(amount) || Double.parseDouble(amount) < 0)
-								{
-									System.out.println("Transaction not authorized. Try again: ");
+									System.out.println("Your balance is negative.  Add funds before withdrawing.");
 									amount = in.next();
 									in.nextLine();
 								}
-								//if withdraw amount is good
-								while(isNumeric(amount))
-								{
-									double amt = Double.parseDouble(amount);
-									//making sure account balance is not negative
-									double testAmt = -1;
-									double testResult;
-									try
-									{
-									testResult = Math.sqrt(accounts.get(num-1).getBalance());
-									
-									}
-									catch(IllegalArgumentException e)
-									{
-										System.out.println("Your balance is negative.  Add funds before withdrawing.");
-										amount = in.next();
-										in.nextLine();
-									}
-									
-									
-								}
-							}
-						}	
-					}
-					}
+								
+								
+						}
+						}
+					}	
+				
 				}
 			}
 		}
-		
-
 	}
+	
+
+}
 
 }
