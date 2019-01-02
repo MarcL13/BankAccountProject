@@ -23,6 +23,19 @@ public class BankAccountMain
 		}
 	}
 	
+	private static boolean isAccNum(String str)
+	{
+		try
+		{
+			Integer.parseInt(str);
+			return true;
+		}
+		catch(IllegalArgumentException a)
+		{
+			return false;
+		}
+	}
+	
 	
 	public static void main(String[] args)	
 	{	
@@ -270,36 +283,16 @@ public class BankAccountMain
 						System.out.println("Answer: ");
 						String num = in.next();
 						in.nextLine();
-						//if they enter acc# outside of # of accounts
-						while(Integer.parseInt(num) > accounts.size())
+						double testResult;
+						//if they enter acc# outside of # of accounts, negative, or 0
+						while(!isAccNum(num) || Integer.parseInt(num) > accounts.size() || Integer.parseInt(num) <= 0 )
 						{
 							System.out.println("That account does not exist.  Please try a different account: ");
 							num = in.next();
 							in.nextLine();
 						}
-						//acc #s negative or 0
-						double testNum = -1;
-						double testResult;
-						try
-						{
-							testResult = Math.sqrt(Integer.parseInt(num)+testNum);
-						}
-						catch(IllegalArgumentException e)
-						{
-							System.out.println("That account does not exist.  Try again: ");
-							num = in.next();
-							in.nextLine();
-						}
-						try
-						{
-							testResult = Math.sqrt(Integer.parseInt(num) - accounts.size());
-						}
-						catch(ArrayIndexOutOfBoundsException b)
-						{
-							System.out.println("That account does not exist. Try again: ");
-							num = in.next();
-							in.nextLine();
-						}
+						
+						
 						
 						
 						
@@ -323,19 +316,23 @@ public class BankAccountMain
 							{
 								double amt = Double.parseDouble(amount);
 								//making sure account balance is not negative
-								double testAmt = -1;
-								
+								while(accounts.get(Integer.parseInt(num)-1).getBalance() < 0)
+								{
+									System.out.println("Balance is negative.  Deposit funds first.");
+									//Add in something for deposit
+								}
 								try
 								{
-								testResult = Math.sqrt(accounts.get(Integer.parseInt(num)-1).getBalance());
-								
+									accounts.get(Integer.parseInt(num) - 1).withdraw(amt);
 								}
 								catch(IllegalArgumentException e)
 								{
-									System.out.println("Your balance is negative.  Add funds before withdrawing.");
-									amount = in.next();
-									in.nextLine();
+									System.out.println("You cannot withdraw that much.  Deposit funds first.");
 								}
+								
+								
+								
+								
 								
 								
 						}
