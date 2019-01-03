@@ -240,6 +240,7 @@ public class BankAccountMain
 		
 			}
 			
+			
 			//transaction
 			while(answer.equals(ans2))
 			{
@@ -297,6 +298,14 @@ public class BankAccountMain
 							System.out.println("How much would you like to deposit?  Enter amount: ");
 							String amount = in.next();
 							in.nextLine();
+							//if they want to deposit a string
+							while(!isNumeric(amount))
+							{
+								System.out.println("Transaction not authorized.  Choose again: ");
+								amount = in.next();
+								in.nextLine();
+							}
+							//if deposit is a negative number
 							double amt = Double.parseDouble(amount);
 							try
 							{
@@ -308,9 +317,25 @@ public class BankAccountMain
 								amount = in.next();
 								in.nextLine();
 							}
-							
+							//if deposit is good
+							accounts.get(Integer.parseInt(num) - 1).deposit(amt);
+							System.out.println("Thank you.  Your money has been deposited.");
+							//restart program
+							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+							System.out.println("Please enter Add, Transaction, or Terminate.");
+							System.out.println("Answer: ");
+							answer = in.next();
+							in.nextLine();
+							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+							{
+								System.out.println("Not valid answer.  Choose again: ");
+								answer = in.next();
+								in.nextLine();
+							}
 						}
+						
 					}
+					
 					
 					
 					//withdraw
