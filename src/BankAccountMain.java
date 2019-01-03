@@ -284,6 +284,7 @@ public class BankAccountMain
 						System.out.println("Answer: ");
 						String num = in.next();
 						in.nextLine();
+						int acctNum = Integer.parseInt(num);
 						
 						//if they enter acc# outside of # of accounts, negative, or 0
 						while(!isAccNum(num) || Integer.parseInt(num) > accounts.size() || Integer.parseInt(num) <= 0 )
@@ -293,7 +294,7 @@ public class BankAccountMain
 							in.nextLine();
 						}
 						//acc #s match
-						while(Integer.parseInt(num) == accounts.get(Integer.parseInt(num)-1).getAccNum())
+						while(acctNum == accounts.get(acctNum-1).getAccNum())
 						{
 							System.out.println("How much would you like to deposit?  Enter amount: ");
 							String amount = in.next();
