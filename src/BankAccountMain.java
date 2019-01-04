@@ -293,48 +293,50 @@ public class BankAccountMain
 							num = in.next();
 							in.nextLine();
 						}
-						//acc #s match
-						while(acctNum == accounts.get(acctNum-1).getAccNum())
+						//finding correct acc
+						BankAccount myAcc = null;
+						for(BankAccount a : accounts)
 						{
-							System.out.println("How much would you like to deposit?  Enter amount: ");
-							String amount = in.next();
-							in.nextLine();
-							//if they want to deposit a string
-							while(!isNumeric(amount))
+							if(Integer.parseInt(num) == a.getAccNum())
 							{
-								System.out.println("Transaction not authorized.  Choose again: ");
-								amount = in.next();
-								in.nextLine();
-							}
-							//if deposit is a negative number
-							double amt = Double.parseDouble(amount);
-							try
-							{
-								accounts.get(Integer.parseInt(num) - 1).deposit(amt);
-							}
-							catch(IllegalArgumentException e)
-							{
-								System.out.println("Cannot deposit a negative number.  Try again: ");
-								amount = in.next();
-								in.nextLine();
-							}
-							//if deposit is good
-							accounts.get(Integer.parseInt(num) - 1).deposit(amt);
-							System.out.println("Thank you.  Your money has been deposited.");
-							//restart program
-							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
-							System.out.println("Please enter Add, Transaction, or Terminate.");
-							System.out.println("Answer: ");
-							answer = in.next();
-							in.nextLine();
-							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
-							{
-								System.out.println("Not valid answer.  Choose again: ");
-								answer = in.next();
-								in.nextLine();
+								myAcc = a;
 							}
 						}
-						
+						System.out.println("How much would you like to deposit?  Enter amount: ");
+						String amount = in.next();
+						in.nextLine();
+						//if they want to deposit a string
+						while(!isNumeric(amount))
+						{
+							System.out.println("Transaction not authorized.  Choose again: ");
+							amount = in.next();
+							in.nextLine();
+						}
+						//try/catch to deposit 
+						double amt = Double.parseDouble(amount);
+						try
+						{
+							myAcc.deposit(amt);
+							System.out.println("Thank you.  Your money has been deposited.");
+							System.out.println(myAcc.toString());
+						}
+						catch(IllegalArgumentException e)
+						{
+							System.out.println("Transaction not authorized.");
+						}
+						//restart program
+						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+						System.out.println("Please enter Add, Transaction, or Terminate.");
+						System.out.println("Answer: ");
+						answer = in.next();
+						in.nextLine();
+						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+						{
+							System.out.println("Not valid answer.  Choose again: ");
+							answer = in.next();
+							in.nextLine();
+						}	
+						break;
 					}
 					
 					
@@ -395,8 +397,5 @@ public class BankAccountMain
 		}
 	}
 	
-
+	}
 }
-
-}
-
