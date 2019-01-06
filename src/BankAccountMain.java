@@ -196,8 +196,11 @@ public class BankAccountMain
 						if(isNumeric(iniBal))
 						{
 							double bal = Double.parseDouble(iniBal);
-							accounts.add(new CheckingAccount(name1, bal, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
+							CheckingAccount acc = new CheckingAccount(name1, bal, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS);
+							accounts.add(acc);
 							System.out.println("Thank you.  Your account has been added.");
+							System.out.println("Your account: ");
+							System.out.println(acc.toString());
 							//restart program
 							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 							System.out.println("Please enter Add, Transaction, or Terminate.");
@@ -340,7 +343,6 @@ public class BankAccountMain
 					}
 					
 					
-					
 					//withdraw
 					case "Withdraw" :
 					{
@@ -348,6 +350,7 @@ public class BankAccountMain
 						System.out.println("Answer: ");
 						String num = in.next();
 						in.nextLine();
+						int acctNum = Integer.parseInt(num);
 						
 						//if they enter acc# outside of # of accounts, negative, or 0
 						while(!isAccNum(num) || Integer.parseInt(num) > accounts.size() || Integer.parseInt(num) <= 0 )
@@ -356,41 +359,8 @@ public class BankAccountMain
 							num = in.next();
 							in.nextLine();
 						}
-						//acc #s match
-						while(Integer.parseInt(num) == accounts.get(Integer.parseInt(num)-1).getAccNum())
-						{
-							System.out.println("How much would you like to withdraw?  Enter amount: ");
-							String amount = in.next();
-							in.nextLine();
-							//if they want to withdraw a string or negative
-							while(!isNumeric(amount) || Double.parseDouble(amount) < 0)
-							{
-								System.out.println("Transaction not authorized. Try again: ");
-								amount = in.next();
-								in.nextLine();
-							}
-							//if withdraw amount is good
-							while(isNumeric(amount))
-							{
-								double amt = Double.parseDouble(amount);
-								//making sure account balance is not negative
-								while(accounts.get(Integer.parseInt(num)-1).getBalance() < 0)
-								{
-									System.out.println("Balance is negative.  Deposit funds first.");
-									//Add in something for deposit
-								}
-								try
-								{
-									accounts.get(Integer.parseInt(num) - 1).withdraw(amt);
-								}
-								catch(IllegalArgumentException e)
-								{
-									System.out.println("You cannot withdraw that much.  Deposit funds first.");
-								}
-								
-							}
-						}
-					}	
+						
+					}
 				
 				}
 			}

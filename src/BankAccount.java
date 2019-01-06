@@ -74,7 +74,7 @@ public abstract class BankAccount
 	
 	public String toString()
 	{
-		return "Account Number: " + acctNum + "	" + "Name: " + name + "	" + "$" + balance;
+		return "Account Number: " + acctNum + "	" + "Name: " + name + "	" + "Balance: $" + balance;
 	}
 	
 	public int getAccNum()
