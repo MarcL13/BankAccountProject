@@ -120,8 +120,10 @@ public class BankAccountMain
 						if(isNumeric(iniBal))
 						{
 							double bal = Double.parseDouble(iniBal);
-							accounts.add(new SavingsAccount(name1, bal, RATE, MIN_BAL, MIN_BAL_FEE));
+							SavingsAccount acc = new SavingsAccount(name1, bal, RATE, MIN_BAL, MIN_BAL_FEE);
+							accounts.add(acc);
 							System.out.println("Thank you.  Your account has been added.");
+							System.out.println(acc.toString());
 							//restart program
 							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 							System.out.println("Please enter Add, Transaction, or Terminate.");
@@ -144,8 +146,10 @@ public class BankAccountMain
 						System.out.println("Name: ");
 						String name2 = in.next();
 						in.nextLine();
-						accounts.add(new SavingsAccount(name2, RATE, MIN_BAL, MIN_BAL_FEE));
+						SavingsAccount acc = new SavingsAccount(name2, RATE, MIN_BAL, MIN_BAL_FEE);
+						accounts.add(acc);
 						System.out.println("Thank you.  Your account has been added.");
+						System.out.println(acc.toString());
 						//restart program
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");
@@ -223,8 +227,10 @@ public class BankAccountMain
 						System.out.println("Name: ");
 						String name2 = in.next();
 						in.nextLine();
-						accounts.add(new CheckingAccount(name2, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS));
+						CheckingAccount acc = new CheckingAccount(name2, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS);
+						accounts.add(acc);
 						System.out.println("Thank you.  Your account has been added.");
+						System.out.println(acc);
 						//restart program
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");

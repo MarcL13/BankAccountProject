@@ -24,6 +24,7 @@ public abstract class BankAccount
 	{
 		name = n;
 		acctNum = nextAccNum + 1;
+		nextAccNum++;
 		balance = b;
 	}
 	
