@@ -366,6 +366,57 @@ public class BankAccountMain
 							in.nextLine();
 						}
 						
+						//finding correct acc
+						BankAccount myAcc = null;
+						for(BankAccount a : accounts)
+						{
+							if(Integer.parseInt(num) == a.getAccNum())
+							{
+								myAcc = a;
+							}
+						}
+						System.out.println("How much would you like to withdraw? Enter amount: ");
+						String amount = in.next();
+						in.nextLine();
+						//if they want to withdraw a string
+						while(!isNumeric(amount))
+						{
+							System.out.println("Transaction not authorized.  Choose again: ");
+							amount = in.next();
+							in.nextLine();
+						}
+						//try/catch for withdraw
+						double amt = Double.parseDouble(amount);
+						try
+						{
+							myAcc.withdraw(amt);
+							System.out.println("Thank you. Your money has been withdrawn.");
+							System.out.println(myAcc.toString());
+						}
+						catch(IllegalArgumentException e)
+						{
+							System.out.println("Transaction not authorized.");
+						}
+						//restart program
+						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+						System.out.println("Please enter Add, Transaction, or Terminate.");
+						System.out.println("Answer: ");
+						answer = in.next();
+						in.nextLine();
+						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+						{
+							System.out.println("Not valid answer.  Choose again: ");
+							answer = in.next();
+							in.nextLine();
+						}	
+						break;
+						
+					}
+					
+					//transfer
+					case "Transfer" :
+					{
+						
 					}
 				
 				}
