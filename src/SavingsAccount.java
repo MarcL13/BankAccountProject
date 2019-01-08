@@ -47,7 +47,6 @@ public class SavingsAccount extends BankAccount
 		}
 		else
 			throw new IllegalArgumentException();
-		return;
 	}
 	
 	public void addInterest()

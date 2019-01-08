@@ -418,7 +418,7 @@ public class BankAccountMain
 					{
 						BankAccount acc1 = null;
 						BankAccount acc2 = null;
-						System.out.println("From which account would you like to take money from?");
+						System.out.println("From which account would you like to take money from? Please enter the account number.");
 						System.out.println("Account 1: ");
 						String transferAcc = in.next();
 						in.nextLine();
@@ -436,7 +436,7 @@ public class BankAccountMain
 								acc1 = a;
 							}
 						}
-						System.out.println("Which account do you want to transfer money to?");
+						System.out.println("Which account do you want to transfer money to?  Please enter the account number.");
 						System.out.println("Account 2: ");
 						String receiveAcc = in.next();
 						in.nextLine();
@@ -454,11 +454,30 @@ public class BankAccountMain
 								acc2 = b;
 							}
 						}
+						//if names of accounts do not match
+						if(!acc1.getName().equals(acc2.getName()))
+						{
+							System.out.println("Sorry, but those account names do not match.  In order for a transfer to occur, the names must be the same.");
+							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+							System.out.println("Please enter Add, Transaction, or Terminate.");
+							System.out.println("Answer: ");
+							answer = in.next();
+							in.nextLine();
+							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+							{
+								System.out.println("Not valid answer.  Choose again: ");
+								answer = in.next();
+								in.nextLine();
+							}	
+							
+						}
+						else
+						{
 						//actual transfer
 						System.out.println("How much do you want to transfer? Enter amount: ");
 						String amount = in.next();
 						in.nextLine();
-						//if amount is string
+						//if amount is string or less or equal to 0
 						while(!isNumeric(amount) || Double.parseDouble(amount) <= 0)
 						{
 							System.out.println("Invalid amount.  Try again: ");
@@ -490,6 +509,7 @@ public class BankAccountMain
 							in.nextLine();
 						}	
 						break;
+					}
 					}
 				
 				}
