@@ -416,29 +416,40 @@ public class BankAccountMain
 					//transfer
 					case "Transfer" :
 					{
-						System.out.println("From which accounts would you like to transfer money?");
+						System.out.println("From which account would you like to take money from?");
 						System.out.println("Account 1: ");
-						String acc1 = in.next();
+						String transferAcc = in.next();
 						in.nextLine();
 						//if account 1 don't work
-						while(!isAccNum(acc1) || Integer.parseInt(acc1) > accounts.size() || Integer.parseInt(acc1) <= 0)
+						while(!isAccNum(transferAcc) || Integer.parseInt(transferAcc) > accounts.size() || Integer.parseInt(transferAcc) <= 0)
 						{
 							System.out.println("The account number you entered is not valid.  Try again: ");
-							acc1 = in.next();
+							transferAcc = in.next();
 							in.nextLine();
 						}
+						System.out.println("Which account do you want to transfer money to?");
 						System.out.println("Account 2: ");
-						String acc2 = in.next();
+						String receiveAcc = in.next();
 						in.nextLine();
 						//if account 2 don't work
-						while(!isAccNum(acc2) || Integer.parseInt(acc2) > accounts.size() || Integer.parseInt(acc2) <= 0)
+						while(!isAccNum(receiveAcc) || Integer.parseInt(receiveAcc) > accounts.size() || Integer.parseInt(receiveAcc) <= 0)
 						{
 							System.out.println("The account number you entered is not valid.  Try again: ");
-							acc2 = in.next();
+							receiveAcc = in.next();
 							in.nextLine();
 						}
 						//actual transfer
-						System.out.println("Which account would you like ");
+						System.out.println("How much do you want to transfer? Enter amount: ");
+						String amount = in.next();
+						in.nextLine();
+						//if amount is string
+						while(!isNumeric(amount) || Double.parseDouble(amount) <= 0)
+						{
+							System.out.println("Invalid amount.  Try again: ");
+							amount = in.next();
+							in.nextLine();
+						}
+						double amt = Double.parseDouble(amount);
 					}
 				
 				}
