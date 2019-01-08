@@ -447,7 +447,13 @@ public class BankAccountMain
 							receiveAcc = in.next();
 							in.nextLine();
 						}
-						
+						for(BankAccount b : accounts)
+						{
+							if(Integer.parseInt(receiveAcc) == b.getAccNum())
+							{
+								acc2 = b;
+							}
+						}
 						//actual transfer
 						System.out.println("How much do you want to transfer? Enter amount: ");
 						String amount = in.next();
@@ -462,8 +468,28 @@ public class BankAccountMain
 						double amt = Double.parseDouble(amount);
 						try
 						{
-							transferAcc.transfer(receiveAcc, amt);
+							acc1.transfer(acc2, amt);
+							System.out.println("Thank you. Your money has been transfered.");
+							System.out.println(acc1.toString());
+							System.out.println(acc2.toString());
 						}
+						catch(IllegalArgumentException e)
+						{
+							System.out.println("Transaction not authorized.");
+						}
+						//restart program
+						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+						System.out.println("Please enter Add, Transaction, or Terminate.");
+						System.out.println("Answer: ");
+						answer = in.next();
+						in.nextLine();
+						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+						{
+							System.out.println("Not valid answer.  Choose again: ");
+							answer = in.next();
+							in.nextLine();
+						}	
+						break;
 					}
 				
 				}
