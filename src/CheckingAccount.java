@@ -77,6 +77,7 @@ public class CheckingAccount extends BankAccount
 		}
 		else
 			throw new IllegalArgumentException();
+		return;
 	}
 	
 	public void endOfMonthUpdate()

@@ -40,13 +40,18 @@ public class SavingsAccount extends BankAccount
 	{
 		if(other.getName().equals(getName()))
 		{
-			if(getBalance() > amt)
+			if(getBalance() < amt)
+			{
+				throw new IllegalArgumentException();
+			}
+			else
 			{
 				super.transfer(other, amt);
 			}
 		}
 		else
 			throw new IllegalArgumentException();
+		return;
 	}
 	
 	public void addInterest()
