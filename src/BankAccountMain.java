@@ -416,6 +416,8 @@ public class BankAccountMain
 					//transfer
 					case "Transfer" :
 					{
+						BankAccount acc1 = null;
+						BankAccount acc2 = null;
 						System.out.println("From which account would you like to take money from?");
 						System.out.println("Account 1: ");
 						String transferAcc = in.next();
@@ -426,6 +428,13 @@ public class BankAccountMain
 							System.out.println("The account number you entered is not valid.  Try again: ");
 							transferAcc = in.next();
 							in.nextLine();
+						}
+						for(BankAccount a : accounts)
+						{
+							if(Integer.parseInt(transferAcc) == a.getAccNum())
+							{
+								acc1 = a;
+							}
 						}
 						System.out.println("Which account do you want to transfer money to?");
 						System.out.println("Account 2: ");
@@ -438,6 +447,7 @@ public class BankAccountMain
 							receiveAcc = in.next();
 							in.nextLine();
 						}
+						
 						//actual transfer
 						System.out.println("How much do you want to transfer? Enter amount: ");
 						String amount = in.next();
@@ -450,6 +460,10 @@ public class BankAccountMain
 							in.nextLine();
 						}
 						double amt = Double.parseDouble(amount);
+						try
+						{
+							transferAcc.transfer(receiveAcc, amt);
+						}
 					}
 				
 				}
