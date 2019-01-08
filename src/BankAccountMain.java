@@ -511,6 +511,12 @@ public class BankAccountMain
 						break;
 					}
 					}
+					
+					//get
+					case "Get" :
+					{
+						
+					}
 				
 				}
 			}
