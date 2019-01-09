@@ -11,6 +11,15 @@ public class CheckingAccount extends BankAccount
 	private final double FREE_TRANS;
 	private int numTransactions = 0;
 	
+	/**
+	 * 
+	 * @param n-name
+	 * @param b-balance
+	 * @param odf-overdraft fee
+	 * @param tf-transaction fee
+	 * @param freeTrans-# of transactions w/o additional fees
+	 * constructor w/starting balance
+	 */
 	public CheckingAccount(String n, double b, double odf, double tf, double freeTrans)
 	{
 		super(n,b);
@@ -19,6 +28,14 @@ public class CheckingAccount extends BankAccount
 		FREE_TRANS = freeTrans;	
 	}
 
+	/**
+	 * 
+	 * @param n-name
+	 * @param odf-overdraft fee
+	 * @param tf-transaction fee
+	 * @param freeTrans-# of transactions w/o additional fees
+	 * constructor w/o starting balance
+	 */
 	public CheckingAccount(String n, double odf, double tf, int freeTrans)
 	{
 		super(n);
@@ -27,6 +44,10 @@ public class CheckingAccount extends BankAccount
 		FREE_TRANS = freeTrans;
 	}
 	
+	/**
+	 * parameter amount of $
+	 * no return, deposit $
+	 */
 	public void deposit(double amt)
 	{
 		if(amt <= 0)
@@ -46,6 +67,10 @@ public class CheckingAccount extends BankAccount
 		}
 	}
 	
+	/**
+	 * parameter amount of $
+	 * no return, withdraw $
+	 */
 	public void withdraw(double amt)
 	{
 		if(amt <= 0 || getBalance() < 0)
@@ -62,7 +87,11 @@ public class CheckingAccount extends BankAccount
 		}
 	}
 	
-	
+	/**
+	 * parameter other bank acc
+	 * parameter amount of $
+	 * no return, transfer $ to other bank acc
+	 */
 	public void transfer(BankAccount other, double amt)
 	{
 		if(other.getName().equals(getName()))
@@ -80,6 +109,10 @@ public class CheckingAccount extends BankAccount
 		return;
 	}
 	
+	/**
+	 * resets # of transactions to 0
+	 * no return value
+	 */
 	public void endOfMonthUpdate()
 	{
 		numTransactions = 0;

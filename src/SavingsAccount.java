@@ -10,6 +10,15 @@ public class SavingsAccount extends BankAccount
 	private final double MIN_BAL;
 	private final double MIN_BAL_FEE;
 	
+	/**
+	 * 
+	 * @param n
+	 * @param b
+	 * @param r
+	 * @param mb
+	 * @param mbf
+	 * constructor w/ initial balance
+	 */
 	public SavingsAccount(String n, double b, double r, double mb, double mbf)
 	{
 		super(n,b);
@@ -18,6 +27,14 @@ public class SavingsAccount extends BankAccount
 		MIN_BAL_FEE = mbf;
 	}
 	
+	/**
+	 * 
+	 * @param n
+	 * @param r
+	 * @param mb
+	 * @param mbf
+	 * constructor w/o initial balance
+	 */
 	public SavingsAccount(String n, double r, double mb, double mbf)
 	{
 		super(n);
@@ -26,6 +43,10 @@ public class SavingsAccount extends BankAccount
 		MIN_BAL_FEE = mbf;
 	}
 	
+	/**
+	 * parameter amount
+	 * no return, withdraw $
+	 */
 	public void withdraw(double amt)
 	{
 		if (getBalance() - amt < 0)
@@ -36,6 +57,10 @@ public class SavingsAccount extends BankAccount
 			super.withdraw(amt);
 	}
 	
+	/**
+	 * parameter other bank acc and amount
+	 * no return transfer amt to other bank acc
+	 */
 	public void transfer(BankAccount other, double amt)
 	{
 		if(other.getName().equals(getName()))
@@ -54,11 +79,19 @@ public class SavingsAccount extends BankAccount
 		return;
 	}
 	
+	/**
+	 * no parameter
+	 * no return, add interest
+	 */
 	public void addInterest()
 	{
 		super.deposit(getBalance() * intRate);
 	}
 	
+	/**
+	 * no parameter
+	 * no return, adds interest
+	 */
 	public void endOfMonthUpdate()
 	{
 		this.addInterest();

@@ -83,8 +83,17 @@ public abstract class BankAccount
 		return balance;
 	}
 	
+	/**
+	 * abstract- in others
+	 */
 	public abstract void endOfMonthUpdate();
 	
+	/**
+	 * 
+	 * @param other acc
+	 * @param amount they want to transfer
+	 * no return
+	 */
 	public void transfer(BankAccount other, double amt)
 	{
 		if(getBalance() >= 0)
@@ -102,11 +111,19 @@ public abstract class BankAccount
 		return;
 	}
 	
+	/**
+	 * no parameter
+	 * returns info
+	 */
 	public String toString()
 	{
 		return "Account Number: " + acctNum + "	" + "Name: " + name + "	" + "Balance: $" + balance;
 	}
 	
+	/**
+	 * 
+	 * @return # of account
+	 */
 	public int getAccNum()
 	{
 		return acctNum;
