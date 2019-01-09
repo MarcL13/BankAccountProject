@@ -6,19 +6,21 @@
  */
 public class CheckingAccount extends BankAccount
 {
+	/**
+	 * fields
+	 */
 	private final double OVER_DRAFT_FEE;
 	private final double TRANSACTION_FEE;
 	private final double FREE_TRANS;
 	private int numTransactions = 0;
 	
 	/**
-	 * 
-	 * @param n-name
-	 * @param b-balance
-	 * @param odf-overdraft fee
-	 * @param tf-transaction fee
-	 * @param freeTrans-# of transactions w/o additional fees
 	 * constructor w/starting balance
+	 * @param n			name
+	 * @param b			balance
+	 * @param odf		overdraft fee
+	 * @param tf		transaction fee
+	 * @param freeTrans	# of transactions w/o additional fees
 	 */
 	public CheckingAccount(String n, double b, double odf, double tf, double freeTrans)
 	{
@@ -29,12 +31,11 @@ public class CheckingAccount extends BankAccount
 	}
 
 	/**
-	 * 
-	 * @param n-name
-	 * @param odf-overdraft fee
-	 * @param tf-transaction fee
-	 * @param freeTrans-# of transactions w/o additional fees
 	 * constructor w/o starting balance
+	 * @param n				name
+	 * @param odf			overdraft fee
+	 * @param tf			transaction fee
+	 * @param freeTrans		# of transactions w/o additional fees
 	 */
 	public CheckingAccount(String n, double odf, double tf, int freeTrans)
 	{
@@ -45,8 +46,8 @@ public class CheckingAccount extends BankAccount
 	}
 	
 	/**
-	 * parameter amount of $
-	 * no return, deposit $
+	 * deposits funds into this bank account
+	 * @param amt	 amount of $ to deposit
 	 */
 	public void deposit(double amt)
 	{
@@ -68,8 +69,8 @@ public class CheckingAccount extends BankAccount
 	}
 	
 	/**
-	 * parameter amount of $
-	 * no return, withdraw $
+	 * withdraws funds from this bank account
+	 * @param amt	 amount of $ to withdraw
 	 */
 	public void withdraw(double amt)
 	{
@@ -88,9 +89,9 @@ public class CheckingAccount extends BankAccount
 	}
 	
 	/**
-	 * parameter other bank acc
-	 * parameter amount of $
-	 * no return, transfer $ to other bank acc
+	 * transfer amt from this account to other
+	 * @param other bank acc to tansfer funds to
+	 * @param amt   amount to transfer
 	 */
 	public void transfer(BankAccount other, double amt)
 	{
@@ -111,7 +112,6 @@ public class CheckingAccount extends BankAccount
 	
 	/**
 	 * resets # of transactions to 0
-	 * no return value
 	 */
 	public void endOfMonthUpdate()
 	{

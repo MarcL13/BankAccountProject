@@ -7,15 +7,17 @@
  */
 public abstract class BankAccount
 {
+	/**
+	 * fields
+	 */
 	private static int nextAccNum;
 	private String name;
 	private int acctNum;
 	private double balance;
 	
 	/**
-	 * 
-	 * @param name
 	 * constructor w/o starting balance
+	 * @param n		name
 	 */
 	public BankAccount(String n)
 	{
@@ -26,10 +28,9 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * 
-	 * @param name
-	 * @param balance
 	 * constructor w/ starting balance
+	 * @param n		name
+	 * @param b		balance
 	 */
 	public BankAccount(String n, double b)
 	{
@@ -40,9 +41,8 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * 
-	 * @param amt
-	 * no return, deposit $
+	 * deposits amt to this bank account
+	 * @param amt	funds to deposit
 	 */
 	public void deposit(double amt)
 	{
@@ -53,9 +53,8 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * 
-	 * @param amt
-	 * no return, withdraw $
+	 * withdraws amt from this bank account
+	 * @param amt	funds to withdraw 
 	 */
 	public void withdraw(double amt)
 	{
@@ -66,7 +65,7 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * no parameter
+	 * gets name of this bank account
 	 * @return name of acc
 	 */
 	public String getName()
@@ -75,7 +74,7 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * no parameter
+	 * gets balance of this bank account
 	 * @return balance of acc
 	 */
 	public double getBalance()
@@ -84,15 +83,14 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * abstract- in others
+	 * abstract- different in sub classes
 	 */
 	public abstract void endOfMonthUpdate();
 	
 	/**
-	 * 
-	 * @param other acc
-	 * @param amount they want to transfer
-	 * no return
+	 * transfer amt from this account to other
+	 * @param other  bank account to transfer funds to
+	 * @param amt	 funds to transfer from this account
 	 */
 	public void transfer(BankAccount other, double amt)
 	{
@@ -112,8 +110,8 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * no parameter
-	 * returns info
+	 * returns this account info
+	 * @return account infor- number, name, balance
 	 */
 	public String toString()
 	{
@@ -121,7 +119,7 @@ public abstract class BankAccount
 	}
 	
 	/**
-	 * 
+	 * returns this account number
 	 * @return # of account
 	 */
 	public int getAccNum()
