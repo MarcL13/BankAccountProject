@@ -12,6 +12,11 @@ public abstract class BankAccount
 	private int acctNum;
 	private double balance;
 	
+	/**
+	 * 
+	 * @param name
+	 * constructor w/o starting balance
+	 */
 	public BankAccount(String n)
 	{
 		name = n;
@@ -20,6 +25,12 @@ public abstract class BankAccount
 		balance = 0;
 	}
 	
+	/**
+	 * 
+	 * @param name
+	 * @param balance
+	 * constructor w/ starting balance
+	 */
 	public BankAccount(String n, double b)
 	{
 		name = n;
@@ -28,6 +39,11 @@ public abstract class BankAccount
 		balance = b;
 	}
 	
+	/**
+	 * 
+	 * @param amt
+	 * no return, deposit $
+	 */
 	public void deposit(double amt)
 	{
 		if(amt < 0)
@@ -36,6 +52,11 @@ public abstract class BankAccount
 			balance = balance + amt;
 	}
 	
+	/**
+	 * 
+	 * @param amt
+	 * no return, withdraw $
+	 */
 	public void withdraw(double amt)
 	{
 		if(amt < 0)
@@ -44,11 +65,19 @@ public abstract class BankAccount
 			balance = balance - amt;
 	}
 	
+	/**
+	 * no parameter
+	 * @return name of acc
+	 */
 	public String getName()
 	{
 		return name;
 	}
 	
+	/**
+	 * no parameter
+	 * @return balance of acc
+	 */
 	public double getBalance()
 	{
 		return balance;
