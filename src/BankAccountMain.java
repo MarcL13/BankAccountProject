@@ -526,11 +526,11 @@ public class BankAccountMain
 								acc = a;
 								if(acc instanceof SavingsAccount)
 								{
-									System.out.println(acc.toString() + "	Account Type: Savings Account");
+									System.out.println(acc.toString() + "Account Type: Savings Account");
 								}
 								else if(acc instanceof CheckingAccount)
 								{
-									System.out.println(acc.toString() + "		Account Type: Checking Account");
+									System.out.println(acc.toString() + "Account Type: Checking Account");
 								}
 							}
 							else
@@ -540,8 +540,6 @@ public class BankAccountMain
 								in.nextLine();
 							}
 						}
-						
-						
 					}
 				
 				}
