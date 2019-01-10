@@ -273,7 +273,7 @@ public class BankAccountMain
 				else
 				{
 					//with accounts
-					System.out.println("Would you like to withdraw, deposit, transer, or get an Account Number?");
+					System.out.println("Would you like to withdraw, deposit, transer, or get account number(s)?");
 					System.out.println("Please enter Withdraw, Deposit, Transfer, or Get");
 					System.out.println("Answer: ");
 					String response = in.next();
@@ -515,6 +515,23 @@ public class BankAccountMain
 					//get
 					case "Get" :
 					{
+						System.out.println("Which account would you like get? Enter name associated with account(s): ");
+						BankAccount acc = null;
+						String name = in.next();
+						in.nextLine();
+						for(BankAccount a : accounts)
+						{
+							if(a.getName().equals(name))
+							{
+								acc = a;
+							}
+							else
+							{
+								System.out.println("There are no accounts with that name.  Try again: ");
+								name = in.next();
+								in.nextLine();
+							}
+						}
 						
 					}
 				
