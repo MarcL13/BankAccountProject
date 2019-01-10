@@ -519,6 +519,7 @@ public class BankAccountMain
 						BankAccount acc = null;
 						String name = in.next();
 						in.nextLine();
+						//if name is in account
 						for(BankAccount a : accounts)
 						{
 							if(a.getName().equals(name))
@@ -526,20 +527,15 @@ public class BankAccountMain
 								acc = a;
 								if(acc instanceof SavingsAccount)
 								{
-									System.out.println(acc.toString() + "Account Type: Savings Account");
+									System.out.println("Account Type: Savings Account	 " + acc.toString());
 								}
 								else if(acc instanceof CheckingAccount)
 								{
-									System.out.println(acc.toString() + "Account Type: Checking Account");
+									System.out.println("Account Type: Checking Account	" + acc.toString());
 								}
-							}
-							else
-							{
-								System.out.println("There are no accounts with that name.  Try again: ");
-								name = in.next();
-								in.nextLine();
-							}
+							}	
 						}
+						
 					}
 				
 				}
