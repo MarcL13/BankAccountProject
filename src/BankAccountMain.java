@@ -57,13 +57,11 @@ public class BankAccountMain
 		String ans1 = "Add";
 		String ans2 = "Transaction";
 		String ans3 = "Terminate";
-		String answer = in.next();
-		in.nextLine();
+		String answer = in.nextLine();
 		while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 			{
 				System.out.println("Not valid answer.  Choose again: ");
-				answer = in.next();
-				in.nextLine();
+				answer = in.nextLine();
 			}
 		
 		//Not terminate
@@ -76,15 +74,14 @@ public class BankAccountMain
 				System.out.println("Answer:");
 				String acc1 = "Savings";
 				String acc2 = "Checking";
-				String type = in.next();
-				in.nextLine();
+				String type = in.nextLine();
+				
 			
 				//not either
 				while(!type.equals(acc1) && !type.equals(acc2))
 				{
 					System.out.println("Not valid answer.  Choose again: ");
-					type = in.next();
-					in.nextLine();
+					type = in.nextLine();
 				}
 				//savings
 				if(type.equals(acc1))
@@ -104,8 +101,7 @@ public class BankAccountMain
 					{
 						System.out.println("Please enter Name and Initial Balance.");
 						System.out.println("Name: ");
-						String name1 = in.next();
-						in.nextLine();
+						String name1 = in.nextLine();
 						System.out.println("Initial Balance:" );
 						String iniBal = in.next();
 						in.nextLine();
@@ -128,13 +124,11 @@ public class BankAccountMain
 							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 							System.out.println("Please enter Add, Transaction, or Terminate.");
 							System.out.println("Answer: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 							{
 								System.out.println("Not valid answer.  Choose again: ");
-								answer = in.next();
-								in.nextLine();
+								answer = in.nextLine();
 							}
 						}
 																	
@@ -154,13 +148,11 @@ public class BankAccountMain
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");
 						System.out.println("Answer: ");
-						answer = in.next();
-						in.nextLine();
+						answer = in.nextLine();
 						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 						{
 							System.out.println("Not valid answer.  Choose again: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 						}
 					}
 				
@@ -209,13 +201,11 @@ public class BankAccountMain
 							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 							System.out.println("Please enter Add, Transaction, or Terminate.");
 							System.out.println("Answer: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 							{
 								System.out.println("Not valid answer.  Choose again: ");
-								answer = in.next();
-								in.nextLine();
+								answer = in.nextLine();
 							}
 						}
 																	
@@ -235,13 +225,11 @@ public class BankAccountMain
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");
 						System.out.println("Answer: ");
-						answer = in.next();
-						in.nextLine();
+						answer = in.nextLine();
 						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 						{
 							System.out.println("Not valid answer.  Choose again: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 						}
 					}
 				
@@ -261,13 +249,11 @@ public class BankAccountMain
 					System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 					System.out.println("Please enter Add, Transaction, or Terminate.");
 					System.out.println("Answer: ");
-					answer = in.next();
-					in.nextLine();
+					answer = in.nextLine();
 					while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 					{
 						System.out.println("Not valid answer.  Choose again: ");
-						answer = in.next();
-						in.nextLine();
+						answer = in.nextLine();
 					}	
 				}
 				else
@@ -337,13 +323,11 @@ public class BankAccountMain
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");
 						System.out.println("Answer: ");
-						answer = in.next();
-						in.nextLine();
+						answer = in.nextLine();
 						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 						{
 							System.out.println("Not valid answer.  Choose again: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 						}	
 						break;
 					}
@@ -401,13 +385,11 @@ public class BankAccountMain
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");
 						System.out.println("Answer: ");
-						answer = in.next();
-						in.nextLine();
+						answer = in.nextLine();
 						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 						{
 							System.out.println("Not valid answer.  Choose again: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 						}	
 						break;
 						
@@ -461,13 +443,11 @@ public class BankAccountMain
 							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 							System.out.println("Please enter Add, Transaction, or Terminate.");
 							System.out.println("Answer: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 							{
 								System.out.println("Not valid answer.  Choose again: ");
-								answer = in.next();
-								in.nextLine();
+								answer = in.nextLine();
 							}	
 							
 						}
@@ -500,13 +480,11 @@ public class BankAccountMain
 						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
 						System.out.println("Please enter Add, Transaction, or Terminate.");
 						System.out.println("Answer: ");
-						answer = in.next();
-						in.nextLine();
+						answer = in.nextLine();
 						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
 						{
 							System.out.println("Not valid answer.  Choose again: ");
-							answer = in.next();
-							in.nextLine();
+							answer = in.nextLine();
 						}	
 						break;
 					}
@@ -515,35 +493,25 @@ public class BankAccountMain
 					//get
 					case "Get" :
 					{
+						ArrayList<BankAccount> accs = new ArrayList<BankAccount>();
 						System.out.println("Which account would you like get? Enter name associated with account(s): ");
-						BankAccount acc = null;
-						String name = in.next();
-						in.nextLine();
-						//no match
+						String name = in.nextLine();
 						for(BankAccount a : accounts)
 						{
-							if(!name.equals(a.getName()))
+							if(name.equals(a.getName()))
 							{
-								System.out.println("There are no accounts that match that name.  Try again: ");
+								accs.add(a);
 							}
 						}
-						//if name is in account
-						for(BankAccount b : accounts)
+						if(accs.size() == 0)
 						{
-							if(name.equals(b.getName()))
-							{
-								acc = b;
-								if(acc instanceof SavingsAccount)
-								{
-									System.out.println("Account Type: Savings Account	 " + acc.toString());
-								}
-								else if(acc instanceof CheckingAccount)
-								{
-									System.out.println("Account Type: Checking Account	" + acc.toString());
-								}
-							}	
+							System.out.println("There are no accounts associated with that name.  Try again: ");
+							name = in.nextLine();
 						}
-						
+						else
+						{
+							System.out.println(accs.toString());
+						}
 					}
 				
 				}
