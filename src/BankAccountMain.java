@@ -510,8 +510,32 @@ public class BankAccountMain
 						}
 						else
 						{
-							System.out.println(accs.toString());
+							for(BankAccount b : accs)
+							{
+								if(b instanceof SavingsAccount)
+								{
+									System.out.println("Account Type: Savings Account	");
+									System.out.println(b.toString());
+								}
+								else if(b instanceof CheckingAccount)
+								{
+									System.out.println("Account  Type: Checking Account		");
+									System.out.println(b.toString());
+								}
+							}
 						}
+						//restart program
+						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+						System.out.println("Please enter Add, Transaction, or Terminate.");
+						System.out.println("Answer: ");
+						answer = in.nextLine();
+						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+						{
+							System.out.println("Not valid answer.  Choose again: ");
+							answer = in.nextLine();
+						}	
+						break;
+						
 					}
 				
 				}
