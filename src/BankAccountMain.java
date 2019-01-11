@@ -75,7 +75,6 @@ public class BankAccountMain
 				String acc1 = "Savings";
 				String acc2 = "Checking";
 				String type = in.nextLine();
-				
 			
 				//not either
 				while(!type.equals(acc1) && !type.equals(acc2))
@@ -87,14 +86,12 @@ public class BankAccountMain
 				if(type.equals(acc1))
 				{
 					System.out.println("Do you want a starting balance? Please enter Yes or No.");
-					String startBal = in.next();
-					in.nextLine();
+					String startBal = in.nextLine();
 					//neither
 					while(!startBal.equals("Yes") && !startBal.equals("No"))
 					{
 						System.out.println("Not valid answer.  Choose again: ");
-						startBal = in.next();
-						in.nextLine();
+						startBal = in.nextLine();
 					}
 					//with starting balance
 					if(startBal.equals("Yes"))
@@ -103,14 +100,12 @@ public class BankAccountMain
 						System.out.println("Name: ");
 						String name1 = in.nextLine();
 						System.out.println("Initial Balance:" );
-						String iniBal = in.next();
-						in.nextLine();
+						String iniBal = in.nextLine();
 						//if balance is a string or negative
 						while(!isNumeric(iniBal) || Double.parseDouble(iniBal) < 0)
 						{
 							System.out.println("Not valid amount.  Choose again: ");
-							iniBal = in.next();
-							in.nextLine();
+							iniBal = in.nextLine();
 						}
 						//balance is good
 						if(isNumeric(iniBal))
@@ -138,8 +133,7 @@ public class BankAccountMain
 					{
 						System.out.println("Please enter Name.");
 						System.out.println("Name: ");
-						String name2 = in.next();
-						in.nextLine();
+						String name2 = in.nextLine();
 						SavingsAccount acc = new SavingsAccount(name2, RATE, MIN_BAL, MIN_BAL_FEE);
 						accounts.add(acc);
 						System.out.println("Thank you.  Your account has been added.");
@@ -162,31 +156,26 @@ public class BankAccountMain
 				if(type.equals(acc2))
 				{
 					System.out.println("Do you want a starting balance? Please enter Yes or No.");
-					String startBal = in.next();
-					in.nextLine();
+					String startBal = in.nextLine();
 					//neither
 					while(!startBal.equals("Yes") && !startBal.equals("No"))
 					{
 						System.out.println("Not valid answer.  Choose again: ");
-						startBal = in.next();
-						in.nextLine();
+						startBal = in.nextLine();
 					}
 					//with starting balance
 					if(startBal.equals("Yes"))
 					{
 						System.out.println("Please enter Name and Initial Balance.");
 						System.out.println("Name: ");
-						String name1 = in.next();
-						in.nextLine();
+						String name1 = in.nextLine();
 						System.out.println("Initial Balance: ");
-						String iniBal = in.next();
-						in.nextLine();
+						String iniBal = in.nextLine();
 						//if balance is a string or negative
 						while(!isNumeric(iniBal) || Double.parseDouble(iniBal) < 0)
 						{
 							System.out.println("Not valid amount.  Choose again: ");
-							iniBal = in.next();
-							in.nextLine();
+							iniBal = in.nextLine();
 						}
 						//balance is good
 						if(isNumeric(iniBal))
@@ -215,8 +204,7 @@ public class BankAccountMain
 					{
 						System.out.println("Please enter Name.");
 						System.out.println("Name: ");
-						String name2 = in.next();
-						in.nextLine();
+						String name2 = in.nextLine();
 						CheckingAccount acc = new CheckingAccount(name2, OVER_DRAFT_FEE, TRANSACTION_FEE, FREE_TRANSACTIONS);
 						accounts.add(acc);
 						System.out.println("Thank you.  Your account has been added.");
@@ -262,13 +250,11 @@ public class BankAccountMain
 					System.out.println("Would you like to withdraw, deposit, transer, or get account number(s)?");
 					System.out.println("Please enter Withdraw, Deposit, Transfer, or Get");
 					System.out.println("Answer: ");
-					String response = in.next();
-					in.nextLine();
+					String response = in.nextLine();
 					while(!response.equals("Withdraw") && !response.equals("Deposit") && !response.equals("Transfer") && !response.equals("Get"))
 					{
 						System.out.println("Invalid answer.  Enter again: ");
-						response = in.next();
-						in.nextLine();
+						response = in.nextLine();
 					}
 					switch(response)
 					{
@@ -277,16 +263,14 @@ public class BankAccountMain
 					{
 						System.out.println("Which account would you like to access?  Please enter the account number.");
 						System.out.println("Answer: ");
-						String num = in.next();
-						in.nextLine();
+						String num = in.nextLine();
 						int acctNum = Integer.parseInt(num);
 						
 						//if they enter acc# outside of # of accounts, negative, or 0
 						while(!isAccNum(num) || Integer.parseInt(num) > accounts.size() || Integer.parseInt(num) <= 0 )
 						{
 							System.out.println("That account does not exist.  Please try a different account: ");
-							num = in.next();
-							in.nextLine();
+							num = in.nextLine();
 						}
 						//finding correct acc
 						BankAccount myAcc = null;
@@ -298,14 +282,12 @@ public class BankAccountMain
 							}
 						}
 						System.out.println("How much would you like to deposit?  Enter amount: ");
-						String amount = in.next();
-						in.nextLine();
+						String amount = in.nextLine();
 						//if they want to deposit a string
 						while(!isNumeric(amount))
 						{
 							System.out.println("Transaction not authorized.  Choose again: ");
-							amount = in.next();
-							in.nextLine();
+							amount = in.nextLine();
 						}
 						//try/catch to deposit 
 						double amt = Double.parseDouble(amount);
@@ -338,16 +320,14 @@ public class BankAccountMain
 					{
 						System.out.println("Which account would you like to access?  Please enter the account number.");
 						System.out.println("Answer: ");
-						String num = in.next();
-						in.nextLine();
+						String num = in.nextLine();
 						int acctNum = Integer.parseInt(num);
 						
 						//if they enter acc# outside of # of accounts, negative, or 0
 						while(!isAccNum(num) || Integer.parseInt(num) > accounts.size() || Integer.parseInt(num) <= 0 )
 						{
 							System.out.println("That account does not exist.  Please try a different account: ");
-							num = in.next();
-							in.nextLine();
+							num = in.nextLine();
 						}
 						
 						//finding correct acc
@@ -360,14 +340,12 @@ public class BankAccountMain
 							}
 						}
 						System.out.println("How much would you like to withdraw? Enter amount: ");
-						String amount = in.next();
-						in.nextLine();
+						String amount = in.nextLine();
 						//if they want to withdraw a string
 						while(!isNumeric(amount))
 						{
 							System.out.println("Transaction not authorized.  Choose again: ");
-							amount = in.next();
-							in.nextLine();
+							amount = in.nextLine();
 						}
 						//try/catch for withdraw
 						double amt = Double.parseDouble(amount);
@@ -402,14 +380,12 @@ public class BankAccountMain
 						BankAccount acc2 = null;
 						System.out.println("From which account would you like to take money from? Please enter the account number.");
 						System.out.println("Account 1: ");
-						String transferAcc = in.next();
-						in.nextLine();
+						String transferAcc = in.nextLine();
 						//if account 1 don't work
 						while(!isAccNum(transferAcc) || Integer.parseInt(transferAcc) > accounts.size() || Integer.parseInt(transferAcc) <= 0)
 						{
 							System.out.println("The account number you entered is not valid.  Try again: ");
-							transferAcc = in.next();
-							in.nextLine();
+							transferAcc = in.nextLine();
 						}
 						for(BankAccount a : accounts)
 						{
@@ -420,14 +396,12 @@ public class BankAccountMain
 						}
 						System.out.println("Which account do you want to transfer money to?  Please enter the account number.");
 						System.out.println("Account 2: ");
-						String receiveAcc = in.next();
-						in.nextLine();
+						String receiveAcc = in.nextLine();
 						//if account 2 don't work
 						while(!isAccNum(receiveAcc) || Integer.parseInt(receiveAcc) > accounts.size() || Integer.parseInt(receiveAcc) <= 0)
 						{
 							System.out.println("The account number you entered is not valid.  Try again: ");
-							receiveAcc = in.next();
-							in.nextLine();
+							receiveAcc = in.nextLine();
 						}
 						for(BankAccount b : accounts)
 						{
@@ -455,14 +429,12 @@ public class BankAccountMain
 						{
 						//actual transfer
 						System.out.println("How much do you want to transfer? Enter amount: ");
-						String amount = in.next();
-						in.nextLine();
+						String amount = in.nextLine();
 						//if amount is string or less or equal to 0
 						while(!isNumeric(amount) || Double.parseDouble(amount) <= 0)
 						{
 							System.out.println("Invalid amount.  Try again: ");
-							amount = in.next();
-							in.nextLine();
+							amount = in.nextLine();
 						}
 						double amt = Double.parseDouble(amount);
 						try
@@ -486,8 +458,9 @@ public class BankAccountMain
 							System.out.println("Not valid answer.  Choose again: ");
 							answer = in.nextLine();
 						}	
-						break;
+						
 					}
+						break;
 					}
 					
 					//get
@@ -503,12 +476,8 @@ public class BankAccountMain
 								accs.add(a);
 							}
 						}
-						if(accs.size() == 0)
-						{
-							System.out.println("There are no accounts associated with that name.  Try again: ");
-							name = in.nextLine();
-						}
-						else
+						//there are matches
+						if(accs.size() != 0)
 						{
 							for(BankAccount b : accs)
 							{
@@ -523,25 +492,46 @@ public class BankAccountMain
 									System.out.println(b.toString());
 								}
 							}
-						}
-						//restart program
-						System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
-						System.out.println("Please enter Add, Transaction, or Terminate.");
-						System.out.println("Answer: ");
-						answer = in.nextLine();
-						while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
-						{
-							System.out.println("Not valid answer.  Choose again: ");
+							//restart program
+							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+							System.out.println("Please enter Add, Transaction, or Terminate.");
+							System.out.println("Answer: ");
 							answer = in.nextLine();
-						}	
-						break;
+							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+							{
+								System.out.println("Not valid answer.  Choose again: ");
+								answer = in.nextLine();
+							}	
+						}
+						//no matches
+						else if(accs.size() == 0)
+						{
+							System.out.println("There are no accounts associated with that name.");
+							//restart program
+							System.out.println("Would you like to add an account, make a transaction, or terminate the program?");
+							System.out.println("Please enter Add, Transaction, or Terminate.");
+							System.out.println("Answer: ");
+							answer = in.nextLine();
+							while(!answer.equals(ans1) && !answer.equals(ans2) && !answer.equals(ans3))
+							{
+								System.out.println("Not valid answer.  Choose again: ");
+								answer = in.nextLine();
+							}	
+						}
 						
+						break;
 					}
 				
 				}
 			}
 		}
 	}
+		
+		//terminate
+		if(answer.equals(ans3))
+		{
+			System.out.println("Thank you for your business with Lussier Inc.  We hope to see you again.");
+		}
 	
 	}
 }
