@@ -10,6 +10,11 @@ import java.util.Scanner;
 
 public class BankAccountMain
 {
+	/**
+	 * local method to check if funds user entered is not a string
+	 * @param str	input of funds
+	 * @return		boolean- true if funds is not a string, false otherwise
+	 */
 	private static boolean isNumeric(String str)
 	{
 		try
@@ -23,6 +28,11 @@ public class BankAccountMain
 		}
 	}
 	
+	/**
+	 * local method to check if account number user entered is not a string
+	 * @param str	input of account number
+	 * @return		boolean- true if acc. number is not a string, false otherwise
+	 */
 	private static boolean isAccNum(String str)
 	{
 		try
